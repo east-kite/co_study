@@ -37,14 +37,9 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  final List<String> _titles = ['タイムライン', 'タイマー', '記録', 'チャット'];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(_titles[_currentIndex]),
-      ),
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,

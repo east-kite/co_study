@@ -57,6 +57,9 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('タイマー'), // ここにグループ名を動的に設定する必要があります
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

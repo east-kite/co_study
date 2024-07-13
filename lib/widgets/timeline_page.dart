@@ -4,6 +4,9 @@ class TimelinePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('タイムライン'), // ここにグループ名を動的に設定する必要があります
+      ),
       body: DefaultTabController(
         length: 3, // タブの数
         child: Column(
@@ -16,21 +19,18 @@ class TimelinePage extends StatelessWidget {
                 children: [
                   // 友だち
                   Container(
-                    color: Colors.red,
                     child: Center(
                       child: Text('タブ1の内容'),
                     ),
                   ),
                   // 校内
                   Container(
-                    color: Colors.blue,
                     child: Center(
                       child: Text('タブ2の内容'),
                     ),
                   ),
                   // 全国
                   Container(
-                    color: Colors.yellow,
                     child: Center(
                       child: Text('タブ3の内容'),
                     ),
