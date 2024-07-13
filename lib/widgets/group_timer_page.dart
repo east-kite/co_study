@@ -1,3 +1,5 @@
+import 'package:co_study/main.dart';
+import 'package:co_study/widgets/record_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -128,7 +130,12 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () {
+                  navigatorKey.currentState!.push(
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => RecordPage()),
+                  );
+                },
                 child: Text('教材記録'),
               ),
             ),

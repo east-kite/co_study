@@ -131,7 +131,7 @@ class MessageWidget extends StatelessWidget {
                   padding: EdgeInsets.only(right: 8),
                   child: CircleAvatar(
                     radius: 16,
-                    backgroundImage: AssetImage('assets/avatar.png'), // 顔写真の画像
+                    backgroundImage: AssetImage('images/gamer.png'), // 顔写真の画像
                   ),
                 ),
               Flexible(
