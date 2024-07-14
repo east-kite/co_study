@@ -14,6 +14,12 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
   bool _isActive = false;
   late Timer _timer;
 
+  @override
+  void initState() {
+    super.initState();
+    _startTimer(); // initStateでタイマーを自動で起動する
+  }
+
   void _startTimer() {
     _isActive = true;
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -23,7 +29,7 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
         } else {
           _isActive = false;
           _timer.cancel();
-          // 終了時
+          // 終了時の処理を追加できます
         }
       });
     });
@@ -127,8 +133,23 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
               ),
             ),
             const SizedBox(height: 20),
+            const SizedBox(height: 20),
             const in_frends(), // 参加している友達
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
+            Container(
+              width: 100,
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.grey[300],
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(
+                Icons.mic_off,
+                size: 60,
+                color: Colors.red,
+              ),
+            ),
+            const SizedBox(height: 20),
             const SizedBox(
               width: 200,
               child: record_button(),
