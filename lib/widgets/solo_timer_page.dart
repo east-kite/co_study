@@ -1,5 +1,7 @@
 import 'package:co_study/widgets/timer/chat_button.dart';
 import 'package:co_study/widgets/timer/record_button.dart';
+import 'package:co_study/widgets/timer/timer_day.dart';
+import 'package:co_study/widgets/timer/timer_rap.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -13,6 +15,7 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
   int _remainingTime = _workDuration;
   bool _isActive = false;
   late Timer _timer;
+  Color _containerColor = const Color.fromRGBO(180, 196, 249, 1); // タイマーの背景
 
   void _startTimer() {
     _isActive = true;
@@ -22,7 +25,7 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
           _remainingTime--;
         } else {
           _isActive = false;
-          _timer!.cancel();
+          _timer.cancel();
         }
       });
     });
@@ -68,38 +71,14 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
             Container(
               padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
               decoration: BoxDecoration(
-                color: const Color.fromRGBO(180, 196, 249, 1),
+                color: _containerColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               constraints: const BoxConstraints(maxWidth: 300),
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "7/13",
-                            textAlign: TextAlign.start,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            "Rap 2",
-                            textAlign: TextAlign.start,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  timer_day(),
+                  timer_rap(),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
@@ -125,7 +104,19 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 200),
+            const SizedBox(height: 50),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  _remainingTime = 300;
+                  _isActive = false;
+                  _timer.cancel();
+                  _containerColor = Colors.yellow;
+                });
+              },
+              child: const Text('デバック用'),
+            ),
+            const SizedBox(height: 100),
             const SizedBox(
               width: 200,
               child: record_button(),

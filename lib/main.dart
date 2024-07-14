@@ -59,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'タイマー',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.record_voice_over),
+            icon: Icon(Icons.description),
             label: '記録',
           ),
           BottomNavigationBarItem(
