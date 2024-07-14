@@ -3,6 +3,8 @@ import 'package:co_study/widgets/record_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:flutter/widgets.dart';
+
 class GroupTimerPage extends StatefulWidget {
   @override
   _GroupTimerPageState createState() => _GroupTimerPageState();
@@ -126,7 +128,32 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
                 ],
               ),
             ),
-            const SizedBox(height: 200),
+            const SizedBox(height: 20),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('images/avatar1.png'),
+                ),
+                SizedBox(width: 10),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('images/avatar2.png'),
+                ),
+                SizedBox(width: 10),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('images/avatar3.png'),
+                ),
+                SizedBox(width: 10),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: AssetImage('images/avatar4.png'),
+                ),
+              ],
+            ),
+            const SizedBox(height: 30),
             SizedBox(
               width: 200,
               child: ElevatedButton(
@@ -137,14 +164,6 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
                   );
                 },
                 child: Text('教材記録'),
-              ),
-            ),
-            const SizedBox(height: 25),
-            SizedBox(
-              width: 200,
-              child: ElevatedButton(
-                onPressed: () => {},
-                child: Text('チャットへ移動'),
               ),
             ),
           ],

@@ -21,9 +21,9 @@ class ChatPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 30),
+              padding: const EdgeInsets.symmetric(vertical: 30),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(180, 196, 249, 1),
+                color: const Color.fromRGBO(180, 196, 249, 1),
                 borderRadius: BorderRadius.circular(10),
               ),
               child: ListView(
@@ -36,7 +36,7 @@ class ChatPage extends StatelessWidget {
                     sendtime: "17:35",
                   ),
                   MessageWidget(
-                    message: '25分達成しました！\n2回目の達成です!\n本日累計： 0時間50分　　　　',
+                    message: '✍ 25分達成しました！\n㊗ 2回目の達成です!\n⏰ 本日累計： 0時間50分　　　　',
                     isMe: true,
                     isSystem: true,
                     senderName: "自分",
@@ -61,7 +61,7 @@ class ChatPage extends StatelessWidget {
 
   Widget _TextInput() {
     return Container(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         children: [
           Expanded(
@@ -77,7 +77,7 @@ class ChatPage extends StatelessWidget {
             ),
           ),
           IconButton(
-            icon: Icon(Icons.call),
+            icon: const Icon(Icons.call),
             onPressed: () {
               navigatorKey.currentState!.push(
                 MaterialPageRoute(
@@ -86,7 +86,7 @@ class ChatPage extends StatelessWidget {
             },
           ),
           IconButton(
-            icon: Icon(Icons.send),
+            icon: const Icon(Icons.send),
             onPressed: () {
               // メッセージ送信処理
             },
@@ -115,7 +115,7 @@ class MessageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
       child: Column(
         crossAxisAlignment:
@@ -126,45 +126,45 @@ class MessageWidget extends StatelessWidget {
                 isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              if (!isMe) // isMeがfalse（相手のメッセージ）の場合にアイコンを表示
-                Padding(
+              if (!isMe)
+                const Padding(
                   padding: EdgeInsets.only(right: 8),
                   child: CircleAvatar(
                     radius: 16,
-                    backgroundImage: AssetImage('images/gamer.png'), // 顔写真の画像
+                    backgroundImage: AssetImage('images/avatar1.png'),
                   ),
                 ),
               Flexible(
                 child: Container(
-                  constraints: BoxConstraints(maxWidth: 250),
+                  constraints: const BoxConstraints(maxWidth: 250),
                   decoration: BoxDecoration(
                     color: isSystem
                         ? Colors.grey[300]
                         : (isMe
-                            ? Color.fromARGB(255, 48, 255, 86)
+                            ? const Color.fromARGB(255, 48, 255, 86)
                             : Colors.white),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: EdgeInsets.all(12),
+                  padding: const EdgeInsets.all(12),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       if (!isMe)
                         Text(
                           senderName,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 12),
                         ),
-                      SizedBox(height: 4), // 名前とメッセージの間隔を調整
+                      const SizedBox(height: 4), // 名前とメッセージの間隔を調整
                       Text(
                         message,
-                        style: TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16),
                       ),
-                      SizedBox(height: 2),
+                      const SizedBox(height: 2),
                       Text(
                         sendtime,
                         textAlign: TextAlign.end,
-                        style: TextStyle(fontSize: 8),
+                        style: const TextStyle(fontSize: 8),
                       ),
                     ],
                   ),
