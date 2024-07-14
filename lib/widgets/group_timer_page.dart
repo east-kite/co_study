@@ -17,7 +17,7 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
   @override
   void initState() {
     super.initState();
-    _startTimer(); // initStateでタイマーを自動で起動する
+    _startTimer(); // 自動起動
   }
 
   void _startTimer() {
@@ -29,7 +29,7 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
         } else {
           _isActive = false;
           _timer.cancel();
-          // 終了時の処理を追加できます
+          // 終了時の処理
         }
       });
     });

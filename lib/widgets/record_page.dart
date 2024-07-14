@@ -55,14 +55,14 @@ class _RecordPageState extends State<RecordPage> {
             ),
             const SizedBox(height: 30),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
               ),
               child: SizedBox(
                 width: 350,
                 child: TextField(
                   controller: _commentController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     hintText: 'コメントを入力',
                   ),

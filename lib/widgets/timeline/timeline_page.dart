@@ -11,7 +11,7 @@ class TimelinePage extends StatelessWidget {
         title: const Text('タイムライン'),
       ),
       body: DefaultTabController(
-        length: 3, // タブの数
+        length: 3, // タブ数
         child: Column(
           children: <Widget>[
             const TabBar(
