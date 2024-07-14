@@ -1,5 +1,7 @@
+import 'package:co_study/widgets/chat_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'record_page.dart'; // RecordPageのインポート先を実際のファイル名に合わせてください
 
 class SoloTimerPage extends StatefulWidget {
   @override
@@ -21,7 +23,6 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
         } else {
           _isActive = false;
           _timer.cancel();
-          // 終了時
         }
       });
     });
@@ -58,7 +59,7 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('タイマー'), // ここにグループ名を動的に設定する必要があります
+        title: Text('タイマー'), // グループ名を動的に設定する必要があります
       ),
       body: Center(
         child: Column(
@@ -128,7 +129,12 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RecordPage()),
+                  );
+                },
                 child: Text('教材記録'),
               ),
             ),
@@ -136,7 +142,12 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
             SizedBox(
               width: 200,
               child: ElevatedButton(
-                onPressed: () => {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ChatPage()),
+                  );
+                },
                 child: Text('チャットへ移動'),
               ),
             ),

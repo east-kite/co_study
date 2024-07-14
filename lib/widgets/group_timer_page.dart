@@ -3,8 +3,6 @@ import 'package:co_study/widgets/record_page.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
-import 'package:flutter/widgets.dart';
-
 class GroupTimerPage extends StatefulWidget {
   @override
   _GroupTimerPageState createState() => _GroupTimerPageState();
