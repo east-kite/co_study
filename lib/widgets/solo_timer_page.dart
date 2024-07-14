@@ -1,7 +1,7 @@
-import 'package:co_study/widgets/chat_page.dart';
+import 'package:co_study/widgets/timer/chat_button.dart';
+import 'package:co_study/widgets/timer/record_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'record_page.dart'; // RecordPageのインポート先を実際のファイル名に合わせてください
 
 class SoloTimerPage extends StatefulWidget {
   @override
@@ -16,13 +16,13 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
 
   void _startTimer() {
     _isActive = true;
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_remainingTime > 0) {
           _remainingTime--;
         } else {
           _isActive = false;
-          _timer.cancel();
+          _timer!.cancel();
         }
       });
     });
@@ -59,19 +59,19 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('タイマー'), // グループ名を動的に設定する必要があります
+        title: const Text('タイマー'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(180, 196, 249, 1),
+                color: const Color.fromRGBO(180, 196, 249, 1),
                 borderRadius: BorderRadius.circular(10),
               ),
-              constraints: BoxConstraints(maxWidth: 300),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: Column(
                 children: [
                   const Padding(
@@ -115,10 +115,10 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
                         onPressed: _isActive ? _stopTimer : _startTimer,
                         child: Text(_isActive ? '停止' : '開始'),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       ElevatedButton(
                         onPressed: _resetTimer,
-                        child: Text('リセット'),
+                        child: const Text('リセット'),
                       ),
                     ],
                   ),
@@ -126,30 +126,14 @@ class _SoloTimerPageState extends State<SoloTimerPage> {
               ),
             ),
             const SizedBox(height: 200),
-            SizedBox(
+            const SizedBox(
               width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => RecordPage()),
-                  );
-                },
-                child: Text('教材記録'),
-              ),
+              child: record_button(),
             ),
             const SizedBox(height: 25),
-            SizedBox(
+            const SizedBox(
               width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ChatPage()),
-                  );
-                },
-                child: Text('チャットへ移動'),
-              ),
+              child: chat_button(),
             ),
           ],
         ),

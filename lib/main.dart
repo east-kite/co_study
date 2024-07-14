@@ -1,4 +1,4 @@
-import 'package:co_study/widgets/chat_page.dart';
+import 'package:co_study/widgets/chat/chat_page.dart';
 import 'package:co_study/widgets/record_page.dart';
 import 'package:co_study/widgets/solo_timer_page.dart';
 import 'package:co_study/widgets/timeline/timeline_page.dart';

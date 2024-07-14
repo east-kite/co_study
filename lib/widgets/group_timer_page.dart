@@ -1,5 +1,5 @@
-import 'package:co_study/main.dart';
-import 'package:co_study/widgets/record_page.dart';
+import 'package:co_study/widgets/timer/in_friends.dart';
+import 'package:co_study/widgets/timer/record_button.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -9,14 +9,14 @@ class GroupTimerPage extends StatefulWidget {
 }
 
 class _GroupTimerPageState extends State<GroupTimerPage> {
-  static const int _workDuration = 25 * 60; // 25 minutes in seconds
+  static const int _workDuration = 25 * 60; // 25 minutes
   int _remainingTime = _workDuration;
   bool _isActive = false;
   late Timer _timer;
 
   void _startTimer() {
     _isActive = true;
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_remainingTime > 0) {
           _remainingTime--;
@@ -60,19 +60,19 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('🦄 Team Unicorns のタイマー'), // ここにグループ名を動的に設定する必要があります
+        title: const Text('🦄 Team Unicorns のタイマー'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 10),
               decoration: BoxDecoration(
-                color: Color.fromRGBO(250, 179, 236, 1),
+                color: const Color.fromRGBO(250, 179, 236, 1),
                 borderRadius: BorderRadius.circular(10),
               ),
-              constraints: BoxConstraints(maxWidth: 300),
+              constraints: const BoxConstraints(maxWidth: 300),
               child: Column(
                 children: [
                   const Padding(
@@ -116,10 +116,10 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
                         onPressed: _isActive ? _stopTimer : _startTimer,
                         child: Text(_isActive ? '停止' : '開始'),
                       ),
-                      SizedBox(width: 20),
+                      const SizedBox(width: 20),
                       ElevatedButton(
                         onPressed: _resetTimer,
-                        child: Text('リセット'),
+                        child: const Text('リセット'),
                       ),
                     ],
                   ),
@@ -127,42 +127,11 @@ class _GroupTimerPageState extends State<GroupTimerPage> {
               ),
             ),
             const SizedBox(height: 20),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('images/avatar1.png'),
-                ),
-                SizedBox(width: 10),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('images/avatar2.png'),
-                ),
-                SizedBox(width: 10),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('images/avatar3.png'),
-                ),
-                SizedBox(width: 10),
-                CircleAvatar(
-                  radius: 30,
-                  backgroundImage: AssetImage('images/avatar4.png'),
-                ),
-              ],
-            ),
+            const in_frends(), // 参加している友達
             const SizedBox(height: 30),
-            SizedBox(
+            const SizedBox(
               width: 200,
-              child: ElevatedButton(
-                onPressed: () {
-                  navigatorKey.currentState!.push(
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => RecordPage()),
-                  );
-                },
-                child: Text('教材記録'),
-              ),
+              child: record_button(),
             ),
           ],
         ),
